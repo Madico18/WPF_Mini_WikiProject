@@ -6,417 +6,245 @@
         xmlns:local="clr-namespace:WikiApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="1100" Width="1000">
-    <Grid Background="WhiteSmoke">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+    <ScrollViewer>
+        <Grid Background="WhiteSmoke">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <Border BorderBrush="LightBlue" BorderThickness="1" Grid.Row="0" Grid.RowSpan="12" Grid.Column="1" Grid.ColumnSpan="3">
-            <StackPanel Background="WhiteSmoke">
-                <Menu Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 0 10 0">
-                    <TextBlock Grid.Row="0" HorizontalAlignment="Right" Padding="5">
-                    <Hyperlink>Обсуждение</Hyperlink>
+            <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="11">
+                <Menu HorizontalAlignment="Right" Margin="0,10,9.8,0" VerticalAlignment="Top">
+                    <TextBlock >
+                            <Hyperlink>Обсуждение</Hyperlink>
                     </TextBlock>
-                    <TextBlock Grid.Row="0" HorizontalAlignment="Right">
-                    <Hyperlink>Вклад</Hyperlink>
+                    <TextBlock >
+                            <Hyperlink>Вклад</Hyperlink>
                     </TextBlock>
-                    <TextBlock Grid.Row="0" HorizontalAlignment="Right">
-                    <Hyperlink>Создать учетную запись</Hyperlink>
+                    <TextBlock >
+                            <Hyperlink>Создать учетную запись</Hyperlink>
                     </TextBlock>
-                    <TextBlock Grid.Row="0" HorizontalAlignment="Right">
-                    <Hyperlink>Войти</Hyperlink>
+                    <TextBlock >
+                            <Hyperlink>Войти</Hyperlink>
                     </TextBlock>
                 </Menu>
-                <TabControl>
-                    <TabItem Header="Заглавная" HorizontalAlignment="Left">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>                               
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                           
-                            <FlowDocumentScrollViewer Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
-                                <FlowDocument>                                    
-                                    <Section BorderBrush="LightGray" BorderThickness="2" Margin="0 0 0 20">
-                                        <Section.Background>
-                                            <ImageBrush ImageSource="Images/Wiki_banner.png" Stretch="None" AlignmentX="Right" AlignmentY="Center"></ImageBrush>
-                                        </Section.Background>
+                <Border BorderBrush="LightBlue" BorderThickness="1" >
+                    <TabControl>
+                        <TabItem Header="Заглавная" HorizontalAlignment="Left">
+                            <Frame x:Name="MainFrame"></Frame>
+                        </TabItem>
+                        <TabItem Header="Обсуждение" HorizontalAlignment="Left"></TabItem>
+                        <TabItem Header="Читать" HorizontalAlignment="Right"></TabItem>
+                        <TabItem Header="Просмотр кода" HorizontalAlignment="Right"></TabItem>
+                        <TabItem Header="История" HorizontalAlignment="Right"></TabItem>
+                    </TabControl>
+                </Border>
+            </StackPanel>
+           
+           
 
-                                        <Table>
-                                            <Table.Columns>
-                                                <TableColumn Width="400"/>
-                                                <TableColumn Width="400"/>                                               
-                                            </Table.Columns>
-                                            <TableRowGroup>
-                                                <TableRow>
-                                                    <TableCell>
-                                                        <Paragraph Margin="10">
-                                                            <Run FontSize="18">
-                                                                Добро пожаловать в Википедию,
-                                                            </Run>
-                                                            <LineBreak></LineBreak>
-                                                            <Run FontSize="10">свободную энциклопедию, которую может редактировать каждый.</Run>
-                                                        </Paragraph>
-                                                    </TableCell>
-                                                    <TableCell>
-                                                        <BlockUIContainer>
-                                                            <StackPanel>
-                                                                <WrapPanel Margin="0 10 0 7">
-                                                                    <TextBlock FontSize="10" Text="Сейчас в Википедии" Margin="0 0 10 0"></TextBlock>
-                                                                    <TextBlock FontSize="10" Text="1 511 12 статья" Margin="0 0 10 0"></TextBlock>
-                                                                    <TextBlock FontSize="10" Text="на русском языке"></TextBlock>
-                                                                </WrapPanel>
-                                                                <WrapPanel>
-                                                                    <TextBlock FontSize="12" FontWeight="Bold" Text="Порталы" Margin="0 0 10 0"></TextBlock>
-                                                                    <TextBlock FontSize="12" FontWeight="Bold" Text="Справка" Margin="0 0 10 0"></TextBlock>
-                                                                    <Button FontSize="12" Background="WhiteSmoke" FontWeight="Bold" Content="Создать статью" Width="120" Height="20"></Button>
-                                                                </WrapPanel>
-                                                            </StackPanel>
-                                                        </BlockUIContainer>
-                                                    </TableCell>                                                   
-                                                </TableRow>
-                                            </TableRowGroup>
-                                        </Table>
-                                    </Section>
-                                    <Table>
-                                        <TableRowGroup>
-                                            <TableRow>
-                                                <TableCell>
-                                                    <Section BorderBrush="LightGray" BorderThickness="2" Padding="5">
-                                                        <Paragraph>
-                                                            <Run FontSize="14" Foreground="Gray">Избранная статья</Run>
-                                                            <LineBreak></LineBreak>
-                                                            <Run FontSize="18">Лян Цичао</Run>
-                                                        </Paragraph>
-                                                        <Paragraph FontSize="10">
-                                                            <Floater Width="140" Padding="5,0" HorizontalAlignment="Right">
-                                                                <BlockUIContainer>
-                                                                    <Image Source="Images/lan.jpg"/>
-                                                                </BlockUIContainer>
-                                                            </Floater>
-                                                            Лян Цичао в начале XX века Лян Цичао (кит. трад. 梁啟超, упр. 梁启超, пиньинь: Liáng Qǐchāo; 23 февраля 1873 — 19 января 1929) — китайский философ, историк философии, учёный, литератор, государственный и общественный деятель, один из лидеров либерального реформаторского движения в Китае конца XIX — начала XX века (так называемые «Сто дней реформ»). Ученик известного философа Кан Ювэя, автор первой его биографии (1901). Отец известного китайского архитектора Лян Сычэна; трое сыновей Лян Цичао стали членами Китайской академии наук.
-В 1896—1897 годах в Шанхае и Хунани занимался просветительской деятельностью; во время Ста дней реформ удостоился аудиенции императора и получил назначение главой школы переводчиков в Пекине. В 1898—1912 годах находился в эмиграции, долго жил в Японии, побывал в Австралии и США. В научно-публицистических работах этого периода стремился синтезировать идеи китайской философии с западным либерализмом, что привело к разрыву с его учителем Кан Ювэем. Был одним из создателей демократической партии, но в 1916 году перешёл в стан республиканцев. Занимал различные посты в правительствах Юань Шикая и Дуань Цижуя. 
-                                                        </Paragraph>
-                                                        <BlockUIContainer>
-                                                            <WrapPanel Margin="0 10 0 7">
-                                                                <Button FontSize="12" Background="WhiteSmoke" FontWeight="Bold" Content="Читать" Width="80" Height="25" Margin="10 0 10 0"></Button>
-                                                                <TextBlock FontSize="10" Text="Все 1157 избранных статей" Margin="10"></TextBlock>                                                                
-                                                            </WrapPanel>
-                                                        </BlockUIContainer>
-                                                    </Section>
-                                                </TableCell>
-                                                <TableCell>
-                                                    <Section BorderBrush="LightGray" BorderThickness="2">
-                                                        <Paragraph Padding="5">
-                                                            <Run FontSize="14" Foreground="Gray">Из новых материалов</Run>
-                                                            <LineBreak></LineBreak>
-                                                            <Run FontSize="16">Знаете ли Вы?</Run>
-                                                        </Paragraph>
-                                                        <List MarkerStyle="Disc" >
-                                                            <ListItem Padding="5">
-                                                                <Paragraph FontSize="10">
-                                                                    <Floater Width="80" Padding="5,0" HorizontalAlignment="Right">
-                                                                        <BlockUIContainer>
-                                                                            <Image Source="Images/Sipi_tau.jpg"/>
-                                                                        </BlockUIContainer>
-                                                                    </Floater>
-                                                                    Сборная по регби тихоокеанского государства (на илл.) увела у новозеландцев россыпь «звёзд».
-                                                                </Paragraph> 
-                                                            </ListItem>
-                                                            <ListItem Padding="5">
-                                                                <Paragraph FontSize="10">
-                                                                    В шахматах звание гроссмейстера носят три сестры Полгар, а в английских шашках — три сестры Брин.
-                                                                </Paragraph>
-                                                            </ListItem>                                                            
-                                                            <ListItem Padding="5">
-                                                                <Paragraph FontSize="10">
-                                                                    «Сокровенный, страстный шёпот души художника» вызвал скандал среди советских искусствоведов.
-                                                                </Paragraph>
-                                                            </ListItem>
-                                                            <ListItem Padding="5">
-                                                                <Paragraph FontSize="10">
-                                                                    <Floater Width="80" Padding="5,0" HorizontalAlignment="Right">
-                                                                        <BlockUIContainer>
-                                                                            <Image Source="Images/Rachel's_Tomb.jpg"/>
-                                                                        </BlockUIContainer>
-                                                                    </Floater>
-                                                                    Гробницу Рахили (на илл.) спас от разрушения британский чиновник.
-                                                                </Paragraph>
-                                                            </ListItem>
-                                                            <ListItem Padding="5">
-                                                                <Paragraph FontSize="10">
-                                                                    Канцлер, чьи распоряжения саботировали подчинённые, занимался переписыванием конституции.
-                                                                </Paragraph>
-                                                            </ListItem>
-                                                            <ListItem Padding="5">
-                                                                <Paragraph FontSize="10">
-                                                                    У нацистов была женская организация, а у российских фашистов — целое женское движение.
-                                                                </Paragraph>
-                                                            </ListItem>
-                                                            <ListItem Padding="5">
-                                                                <Paragraph FontSize="10">
-                                                                    Итало Кальвино назвал одним из величайших писателей спортивного журналиста.
-                                                                </Paragraph>
-                                                            </ListItem>
-                                                            <ListItem Padding="5">
-                                                                <Paragraph FontSize="10">
-                                                                    В первом советском сборнике Высоцкого текстологи в 129 стихотворениях насчитали больше 400 ошибок.
-                                                                </Paragraph>
-                                                            </ListItem>
-                                                        </List>
-                                                        <BlockUIContainer>
-                                                            <WrapPanel Margin="0 10 0 7">
-                                                                <Button FontSize="12" Background="WhiteSmoke" FontWeight="Bold" Content="Обсудить" Width="80" Height="25" Margin="10 0 10 0"></Button>                                                               
-                                                            </WrapPanel>
-                                                        </BlockUIContainer>
-                                                    </Section>
-                                                </TableCell>
-                                            </TableRow>
-                                            <TableRow>
-                                                <TableCell>
-                                                    <Section BorderBrush="LightGray" BorderThickness="2" Padding="5">
-                                                        <Paragraph>
-                                                            <Run FontSize="14" Foreground="Gray">Хорошая статья</Run>
-                                                            <LineBreak></LineBreak>
-                                                            <Run FontSize="18">Новая Москва</Run>
-                                                        </Paragraph>
-                                                        <Paragraph FontSize="10">
-                                                            <Run Text="«"></Run><Bold Foreground="CornflowerBlue">Новая Москва</Bold><Run Text="» — картина советского художника Юрия Пименова, созданная в 1937 году. Картина символически выражает новый уклад социалистической жизни в СССР. В поэтической форме она выражает гордость художника своей страной. Искусствовед Логинова называла картину самой популярной из созданных мастером и программной для него. Она находится в коллекции Государственной Третьяковской галереи и демонстрируется в её постоянной экспозиции.
-Картина «Новая Москва» неоднократно была представлена на крупных международных выставках. Она воспринимается историками искусства как одна из лучших картин 1930-х годов."></Run>
-                                                        </Paragraph>
-                                                        <BlockUIContainer>
-                                                            <WrapPanel Margin="0 10 0 7">
-                                                                <Button FontSize="12" Background="WhiteSmoke" FontWeight="Bold" Content="Читать" Width="80" Height="25" Margin="10 0 10 0"></Button>
-                                                                <TextBlock FontSize="10" Text="Все 1157 избранных статей" Margin="10"></TextBlock>
-                                                            </WrapPanel>
-                                                        </BlockUIContainer>
-                                                    </Section>
-                                                </TableCell>
-                                                <TableCell>
-                                                    <Section BorderBrush="LightGray" BorderThickness="2">
-                                                        <Paragraph Padding="5">                                                            
-                                                            <Run FontSize="16">Текущие события</Run>
-                                                            <LineBreak></LineBreak>
-                                                            <Bold FontSize="12">Актуальные темы:</Bold>
-                                                            <Run Text="матч за звание чемпиона мира по шахматам чемпионат мира по шахматам среди женщин" FontSize="12" Foreground="CornflowerBlue"></Run>
-                                                        </Paragraph>
-                                                        <List MarkerStyle="Disc" >
-                                                            <ListItem Padding="5">
-                                                                <Paragraph FontSize="10">
-                                                                    <Floater Width="80" Padding="5,0" HorizontalAlignment="Right">
-                                                                        <BlockUIContainer>
-                                                                            <Image Source="Images/SanJuan.jpg"/>
-                                                                        </BlockUIContainer>
-                                                                    </Floater>
-                                                                    Аргентинская подлодка «Сан-Хуан» (на фото), спустя примерно год после исчезновения[en], найдена вблизи полуострова Вальдес.
-                                                                </Paragraph>
-                                                            </ListItem>
-                                                            <ListItem Padding="5">
-                                                                <Paragraph FontSize="10">
-                                                                    Международный комитет мер и весов принял новые определения килограмма, ампера, кельвина и моля.
-                                                                </Paragraph>
-                                                            </ListItem>
-                                                            <ListItem Padding="5">
-                                                                <Paragraph FontSize="10">
-                                                                    В результате лесных пожаров в Калифорнии погибли и пропали без вести более 1200 человек.
-                                                                </Paragraph>
-                                                            </ListItem>                                                                                                           
-                                                        </List>
-                                                        <BlockUIContainer>
-                                                            <WrapPanel Margin="0 10 0 7">
-                                                                <Button FontSize="12" Background="WhiteSmoke" FontWeight="Bold" Content="Обсудить" Width="80" Height="25" Margin="10 0 10 0"></Button>
-                                                            </WrapPanel>
-                                                        </BlockUIContainer>
-                                                    </Section>
-                                                </TableCell>
-                                            </TableRow>
-                                        </TableRowGroup>
-                                    </Table>                                    
-                                </FlowDocument>                               
-                            </FlowDocumentScrollViewer>
+            <StackPanel VerticalAlignment="Top" Background="Transparent" Grid.Row="0" Grid.RowSpan="12" Grid.Column="0">
+                <Image Source="Images/logoWiki.jpg"></Image>
+                <StackPanel HorizontalAlignment="Center" Margin="0 20 0 10">
+                    <TextBlock Padding="1">
+                        <Hyperlink>Заглавная страница</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                        <Hyperlink Click="Hyperlink_Click">Рубрикация</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                        <Hyperlink>Указатель А - Я</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                        <Hyperlink>Избранные статьи</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                        <Hyperlink>Случайная статья</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                        <Hyperlink>Текущие события</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Margin="0 0 0 10">
+                    <TextBlock Padding="1" Text="Участие"></TextBlock>
+                    <Separator HorizontalAlignment="Stretch" Foreground="WhiteSmoke"></Separator>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Сообщить об ошибке</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Сообщество</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Форум</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Свежие правки</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Новые страницы</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Справка</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Пожертвовать</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Margin="0 0 0 10">
+                    <TextBlock Padding="1" Text="Инструменты"></TextBlock>
+                    <Separator HorizontalAlignment="Stretch" Foreground="WhiteSmoke"></Separator>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Ссылки сюда</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Связанные правки</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Служебные страницы</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Постоянная ссылка</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Сведения о странице</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Margin="0 0 0 10">
+                    <TextBlock Padding="1" Text="Печать/экспорт          "></TextBlock>
+                    <Separator HorizontalAlignment="Stretch" Foreground="WhiteSmoke"></Separator>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Создать книгу</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Скачать как PDF</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Версия для печати</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Margin="0 0 0 10">
+                    <TextBlock Padding="1" Text="В других проектах"></TextBlock>
+                    <Separator HorizontalAlignment="Stretch" Foreground="WhiteSmoke"></Separator>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Викисклад</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>MediaWiki</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Мета-вики</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Викивиды</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Викиучебник</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Викиданные</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Викиновости</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Викицитатник</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Викитека</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Викиверситет</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Викигид</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Викисловарь</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Элемент Викиданных</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Margin="0 0 0 10">
+                    <TextBlock Padding="1" Text="На других языках       "></TextBlock>
+                    <Separator HorizontalAlignment="Stretch" Foreground="WhiteSmoke"></Separator>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Azərbaycanca</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Башҡортса</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Беларуская</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Български</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Нохчийн</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Dansk</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Hyperlink>Deutsch‎</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Padding="1">
+                                            <Bold Foreground="CornflowerBlue">Полный список</Bold>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+            <WrapPanel Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="3">
+                <StackPanel>
+                    <TextBlock FontSize="8" Grid.Column="1" Grid.ColumnSpan="2">Текст доступен по лицензии Creative Commons Attribution-ShareAlike; в отдельных случаях могут действовать дополнительные условия. Подробнее см. Условия использования.</TextBlock>
+                    <TextBlock FontSize="8">Wikipedia® — зарегистрированный товарный знак некоммерческой организации Wikimedia Foundation, Inc.</TextBlock>
+                    <WrapPanel>
+                        <TextBlock FontSize="8" Margin="0 10 8 0">
+                            <Hyperlink>Политика конфиденциальности</Hyperlink>
+                        </TextBlock>
+                        <TextBlock FontSize="8" Margin="0 10 8 0">
+                            <Hyperlink>Описание википедии</Hyperlink>
+                        </TextBlock>
+                        <TextBlock FontSize="8" Margin="0 10 8 0">
+                            <Hyperlink>Отказ от ответственности</Hyperlink>
+                        </TextBlock>
+                        <TextBlock FontSize="8" Margin="0 10 8 0">
+                            <Hyperlink>Свяжитесь с нами</Hyperlink>
+                        </TextBlock>
+                        <TextBlock FontSize="8" Margin="0 10 8 0">
+                            <Hyperlink>Разработчики</Hyperlink>
+                        </TextBlock>
+                        <TextBlock FontSize="8" Margin="0 10 8 0">
+                            <Hyperlink>Соглашение о cookies</Hyperlink>
+                        </TextBlock>
+                        <TextBlock FontSize="8" Margin="0 10 8 0">
+                            <Hyperlink>Мобильная версия</Hyperlink>
+                        </TextBlock>
+                    </WrapPanel>
+                </StackPanel>
+                <WrapPanel Margin="20 0 10 0">
+                    <Image Source="Images/wikimedia-button.png" Width="70" Height="50" Margin="20 0 20 0"></Image>
+                    <Image Source="Images/poweredby_mediawiki_88x31.png"  Width="70" Height="50"></Image>
+                </WrapPanel>
+            </WrapPanel>
 
-                            
-                        </Grid>
-                    </TabItem>
-                    <TabItem Header="Обсуждение" HorizontalAlignment="Left"></TabItem>
-                    <TabItem Header="Читать" HorizontalAlignment="Right"></TabItem>
-                    <TabItem Header="Просмотр кода" HorizontalAlignment="Right"></TabItem>
-                    <TabItem Header="История" HorizontalAlignment="Right"></TabItem>
-                </TabControl>                
-            </StackPanel>            
-        </Border>
-        <StackPanel VerticalAlignment="Top" Background="Transparent" Grid.Row="0" Grid.RowSpan="12" Grid.Column="0">
-            <Image Source="Images/logoWiki.jpg"></Image>
-            <StackPanel HorizontalAlignment="Center" Margin="0 0 0 10">
-                <TextBlock Padding="1">
-                                        <Hyperlink>Заглавная страница</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Рубрикация</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Указатель А - Я</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Избранные статьи</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Случайная статья</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Текущие события</Hyperlink>
-                </TextBlock>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Margin="0 0 0 10">
-                <TextBlock Padding="1" Text="Участие"></TextBlock>
-                <Separator HorizontalAlignment="Stretch" Foreground="WhiteSmoke"></Separator>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Сообщить об ошибке</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Сообщество</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Форум</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Свежие правки</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Новые страницы</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Справка</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Пожертвовать</Hyperlink>
-                </TextBlock>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Margin="0 0 0 10">
-                <TextBlock Padding="1" Text="Инструменты"></TextBlock>
-                <Separator HorizontalAlignment="Stretch" Foreground="WhiteSmoke"></Separator>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Ссылки сюда</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Связанные правки</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Служебные страницы</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Постоянная ссылка</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Сведения о странице</Hyperlink>
-                </TextBlock>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Margin="0 0 0 10">
-                <TextBlock Padding="1" Text="Печать/экспорт          "></TextBlock>
-                <Separator HorizontalAlignment="Stretch" Foreground="WhiteSmoke"></Separator>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Создать книгу</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Скачать как PDF</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Версия для печати</Hyperlink>
-                </TextBlock>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Margin="0 0 0 10">
-                <TextBlock Padding="1" Text="В других проектах"></TextBlock>
-                <Separator HorizontalAlignment="Stretch" Foreground="WhiteSmoke"></Separator>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Викисклад</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>MediaWiki</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Мета-вики</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Викивиды</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Викиучебник</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Викиданные</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Викиновости</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Викицитатник</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Викитека</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Викиверситет</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Викигид</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Викисловарь</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Элемент Викиданных</Hyperlink>
-                </TextBlock>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Margin="0 0 0 10">
-                <TextBlock Padding="1" Text="На других языках       "></TextBlock>
-                <Separator HorizontalAlignment="Stretch" Foreground="WhiteSmoke"></Separator>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Azərbaycanca</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Башҡортса</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Беларуская</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Български</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Нохчийн</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Dansk</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Hyperlink>Deutsch‎</Hyperlink>
-                </TextBlock>
-                <TextBlock Padding="1">
-                                        <Bold Foreground="CornflowerBlue">Полный список</Bold>
-                </TextBlock>
-            </StackPanel>
-        </StackPanel>
+        </Grid>
+    </ScrollViewer>
 
-    </Grid>
 </Window>

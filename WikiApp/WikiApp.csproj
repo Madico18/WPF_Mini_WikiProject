@@ -71,10 +71,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\RubricationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\HeadPage.xaml.cs">
       <DependentUpon>HeadPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RubricationPage.xaml.cs">
+      <DependentUpon>RubricationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -119,6 +126,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\SanJuan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\poweredby_mediawiki_88x31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\wikimedia-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

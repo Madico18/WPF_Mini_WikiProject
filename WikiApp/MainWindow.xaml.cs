@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WikiApp.Pages;
 
 namespace WikiApp
 {
@@ -20,9 +21,21 @@ namespace WikiApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static Frame mf { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            mf = MainFrame;
+
+            MainFrame.Source = new Uri("Pages/HeadPage.xaml", UriKind.RelativeOrAbsolute);
+        }
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            RubricationPage rp = new RubricationPage();
+            MainFrame.NavigationService.Navigate(rp);
         }
     }
 }
